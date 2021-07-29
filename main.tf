@@ -23,12 +23,12 @@ resource "aws_key_pair" "adminuser" {
 resource "aws_instance" "app_server01" {
   ami             = "ami-05f7491af5eef733a"
   instance_type   = "t2.micro"
-  user_data       = file("apacherun.sh")
+  user_data       = file("nginxrun.sh")
   security_groups = ["web-servers", "allow_ssh"]
   key_name        = "terraform"
 
   tags = {
-    Name = "Apache2Server"
+    Name = "NginxServer"
   }
 }
 
